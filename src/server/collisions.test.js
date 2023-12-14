@@ -1,6 +1,6 @@
 const applyCollisions = require('./collisions');
 const Constants = require('../shared/constants');
-const Player = require('./player');
+const Player = require('./players');
 const Bullet = require('./bullet');
 
 describe('applyCollisions', () => {
