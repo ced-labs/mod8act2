@@ -15,3 +15,8 @@ pipelines:
               - npm install
               - echo "Building application..."
               - npm run build
+        - step:
+            name: Test
+            script:
+              - echo "Running Tests..." 
+              - npm test
