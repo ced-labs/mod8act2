@@ -19,4 +19,5 @@ pipelines:
             name: Test
             script:
               - echo "Running Tests..." 
+              - npm install
               - npm test
