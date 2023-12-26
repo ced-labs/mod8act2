@@ -7,7 +7,19 @@ image: node:16
 
 pipelines:
   default:
+    - step:
+        name: Install dependencies
+        caches:
+          - node
+        script:
+          - yarn install
     - parallel:
+        - step:
+            name: Code quality
+            caches:
+              - node
+            script:
+              - yarn prettier --write "src/**"
         - step:
             name: Build
             script:
