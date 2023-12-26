@@ -19,7 +19,7 @@ pipelines:
             caches:
               - node
             script:
-              - yarn prettier --write "src/**"
+              -npm prettier --write "src/**"
         - step:
             name: Build
             script:
