@@ -7,17 +7,28 @@ image: node:16
 
 pipelines:
   default:
-    - parallel:
-        - step:
-            name: Build
-            script:
-              - echo "Installing all packages..." 
-              - npm install
-              - echo "Building application..."
-              - npm run build
-        - step:
-            name: Test
-            script:
-              - echo "Running Tests..." 
-              - npm install
-              - npm test
+    - step:
+        name: Install dependencies
+        caches:
+          - node
+        script:
+          - npm install
+    - step:
+        name: Code quality
+        caches:
+          - node
+        script:
+          - npx prettier --write "src/**"
+    - step:
+        name: Build
+        script:
+          - echo "Installing all packages..." 
+          - npm install
+          - echo "Building application..."
+          - npm run build
+    - step:
+        name: Test
+        script:
+          - echo "Running Tests..." 
+          - npm install
+          - npm test
