@@ -12,7 +12,7 @@ pipelines:
         caches:
           - node
         script:
-          - yarn install
+          - npm install
     - step:
         name: Code quality
         caches:
