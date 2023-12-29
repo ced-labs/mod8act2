@@ -31,10 +31,11 @@ pipelines:
         script:
           - echo "Running Tests..." 
           - npm install
+          - npm test
     - step:
         name: Package
         script:
           - git archive --format=tar.gz master -o ingame.tar.gz
         artifacts:
           - ingame.tar.gz
-          - npm test
+          
