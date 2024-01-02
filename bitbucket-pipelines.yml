@@ -13,25 +13,26 @@ pipelines:
           - node
         script:
           - npm install
-    - step:
-        name: Code quality
-        caches:
-          - node
-        script:
-          - npx prettier --write "src/**"
-    - step:
-        name: Build
-        script:
-          - echo "Installing all packages..." 
-          - npm install
-          - echo "Building application..."
-          - npm run build
-    - step:
-        name: Test
-        script:
-          - echo "Running Tests..." 
-          - npm install
-          - npm test
+    - parallel:
+       - step:
+           name: Code quality
+           caches:
+             - node
+           script:
+             - npx prettier --write "src/**"
+       - step:
+           name: Build
+           script:
+             - echo "Installing all packages..." 
+             - npm install
+             - echo "Building application..."
+             - npm run build
+       - step:
+           name: Test
+           script:
+             - echo "Running Tests..." 
+             - npm install
+             - npm test
     - step:
         name: Package
         script:
@@ -56,4 +57,4 @@ pipelines:
           - vercel pull --yes --environment=production --token=$VERCEL_TOKEN
           - vercel build --token=$VERCEL_TOKEN
         caches:
-         - node        
+         - node
