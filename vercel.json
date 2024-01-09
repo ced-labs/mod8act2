@@ -12,14 +12,7 @@
       "src": "/api/(.*)",
       "dest": "/src/server/server.js"
     },
-    {
-      "src": "/dist/(.*)",
-      "dest": "/dist/$1"
-    },
-    {
-      "src": "/public/(.*)",
-      "dest": "/public/$1"
-    },
+    
     {
       "src": "/(.*)",
       "dest": "/src/server/server.js"
