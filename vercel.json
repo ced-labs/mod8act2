@@ -1,16 +1,16 @@
 {
     "version": 2,
-    "name": "music-album",
+    "name": "grupo1-actividad2",
     "builds": [
         {
-            "src": "src/server/server.js",
+            "src": "src/client",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "/src/server/server.js"
+            "dest": "/src/client"
         }
     ]
 }
