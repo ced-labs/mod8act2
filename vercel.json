@@ -3,7 +3,7 @@
     "name": "grupo1-actividad2",
     "builds": [
         {
-            "src": "*.js",
+            "src": "**/*.js",
             "use": "@vercel/node"
         },
         {
@@ -13,7 +13,7 @@
     ],
     "routes":[
         {
-            "src": "/src/(.*)",
+            "src": "/(.*)",
             "dest": "server.js"
         },
         {
